@@ -81,6 +81,8 @@ require_once("Venda.php");
   <?php
     } catch (VendaException $e){
       echo "VendaException: ". $e->getMessage() . " - Código: " . $e->getCodigo();
+    } finally{
+      echo "<br/> Processamento Encerrado";
     }
 ?>  
 
