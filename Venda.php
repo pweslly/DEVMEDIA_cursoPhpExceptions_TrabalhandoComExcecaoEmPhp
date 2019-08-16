@@ -44,11 +44,15 @@ class Venda extends Produto{
   }
 
   public function getTotal(){
-    $total = 0;  
-    foreach($this->itens as $item){
-      $total += $item->getPreco();
-      
+    $total = 0;
+    
+    if(!count($this->itens)){
+      throw new \LogicException("Quantidade de itens é inválida");
     }
-    return $total;
+
+    foreach($this->itens as $item){
+      $total += $item->getPreco();      
+    }
+    return $total;  
   }
 }

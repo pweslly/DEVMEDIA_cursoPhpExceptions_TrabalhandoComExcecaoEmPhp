@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
-  <title>Assinatura - Criando uma  Class OOP</title> 
+  <title>DEVMEDIA - PHP Excpetions - Trabalhando com Exceção em PHP</title> 
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -40,8 +40,8 @@
 
     
   $Venda = new Venda();
-  $Venda->adicionar($Camisa);
-  $Venda->adicionar(null);
+  $Venda->adicionar($camisa);
+  $Venda->adicionar($bone); // Voce coloca NULL para ver o resultado e  depois exclui camisa e bone
   ?>
 
   <div class="container">  
@@ -79,6 +79,8 @@
   <?php
     } catch (\InvalidArgumentException $e){
       echo "Error Encontrado: " . $e->getMessage();
+    } catch (LogicException $e){
+      echo "Erro: " . $e->getMessage();
     }
 ?>  
 
