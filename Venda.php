@@ -2,6 +2,7 @@
 
 namespace Venda;
 use Produto\Produto;
+use VendaException\VendaException;
 
 class Venda extends Produto{
 
@@ -10,7 +11,8 @@ class Venda extends Produto{
   
   public function adicionar($Produto){
     if($Produto == null){
-      throw new \InvalidArgumentException("Item não pode ser nulo");
+      throw new VendaException(2500,"Item não pode ser nulo");
+      
     }
       array_push($this->itens, $Produto);
    
@@ -46,10 +48,6 @@ class Venda extends Produto{
   public function getTotal(){
     $total = 0;
     
-    if(!count($this->itens)){
-      throw new \LogicException("Quantidade de itens é inválida");
-    }
-
     foreach($this->itens as $item){
       $total += $item->getPreco();      
     }

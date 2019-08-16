@@ -21,10 +21,12 @@
 
   use Produto\Produto;
   use Venda\Venda;
+  use VendaException\VendaException;
 
- 
-  include_once ("Produto.php");
-  include_once ("Venda.php");
+require_once("VendaException.php");
+require_once("Produto.php");
+require_once("Venda.php");
+  
   
   try{
 
@@ -40,8 +42,8 @@
 
     
   $Venda = new Venda();
-  $Venda->adicionar($camisa);
-  $Venda->adicionar($bone); // Voce coloca NULL para ver o resultado e  depois exclui camisa e bone
+  $Venda->adicionar($Camisa);
+  $Venda->adicionar($Bone); // Voce coloca NULL para ver o resultado e  depois exclui camisa e bone
   ?>
 
   <div class="container">  
@@ -77,10 +79,8 @@
   </div>
 
   <?php
-    } catch (\InvalidArgumentException $e){
-      echo "Error Encontrado: " . $e->getMessage();
-    } catch (LogicException $e){
-      echo "Erro: " . $e->getMessage();
+    } catch (VendaException $e){
+      echo "VendaException: ". $e->getMessage() . " - Código: " . $e->getCodigo();
     }
 ?>  
 
