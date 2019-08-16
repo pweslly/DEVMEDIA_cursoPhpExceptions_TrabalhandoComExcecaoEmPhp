@@ -39,7 +39,7 @@
 
   $Venda = new Venda();
   $Venda->adicionar($Camisa);
-  $Venda->adicionar($Bone);
+  $Venda->adicionar(null);
   ?>
 
   <div class="container">  
@@ -57,11 +57,7 @@
             </div>
 
   <span class="text-muted"><?php echo "Total: ". $Venda->getTotal(); ?></span>
-  <?php
-    } catch (\InvalidArgumentException $e){
-      echo "Error Encontrado: " . $e->getMessage();
-    }
-?>         
+       
             </li>
 
 
@@ -76,7 +72,11 @@
         </ul>
   </div>
 
-
+  <?php
+    } catch (\InvalidArgumentException $e){
+      echo "Error Encontrado: " . $e->getMessage();
+    }
+?>  
 
   </div>
   
