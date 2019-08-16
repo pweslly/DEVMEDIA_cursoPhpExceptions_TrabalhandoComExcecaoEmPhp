@@ -27,16 +27,18 @@
   include_once ("Venda.php");
   
   try{
-  $Camisa = new Produto();
-  
+
+   // Adicionando produto Camisa
+  $Camisa = new Produto();  
   $Camisa->setPreco("12");
   $Camisa->setDescricao("Camisa Polo");
 
+  // Adicionando produto Bone
   $Bone = new Produto();
-
   $Bone->setPreco("5");
   $Bone->setDescricao("Bone X-men");
 
+    
   $Venda = new Venda();
   $Venda->adicionar($Camisa);
   $Venda->adicionar(null);
@@ -52,10 +54,11 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condesed">
               <div>
+              <!-- EXIBINDO MEU PRODUTOS INSERIDO -->
               <h6 class="my-0"><?php echo $Venda->exibirProduto(); ?></h6>
                 <small class="text-muted"></small>
             </div>
-
+    <!-- EXIBINDO PREÇO TOTAL DOS MEUS PRODUTOS--> 
   <span class="text-muted"><?php echo "Total: ". $Venda->getTotal(); ?></span>
        
             </li>
@@ -66,6 +69,7 @@
                 <h6 class="my-0">Preço Unitário</h6>
                 <small class="text-muted">Preço Unitário</small>
               </div>
+               <!-- QUERIA EXIBIR PRODUTO POR PREÇO -->
               <span class="text-muted"><?php echo $Venda->exibirPreco(); ?></span>
             </li>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Assinar</button>
